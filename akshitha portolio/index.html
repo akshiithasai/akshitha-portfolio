@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshitha Sai | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --text-color: white;
+            --primary-color: #007bff;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --primary-color: #0056b3;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color: var(--text-color) 0.3s;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        #typed-container {
+            text-align: center;
+            margin-bottom: 1rem;
+            min-height: 2rem;
+        }
+
+        #typedtext {
+            font-size: 1.4rem;
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        #typedtext.fade {
+            opacity: 0;
+        }
+
+        .header-icons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-icons a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .nav-bar {
+            background-color: #1e3c72;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-toggle {
+            font-size: 1.5rem;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            right: 1rem;
+            /* Stick to the right */
+        }
+
+        #nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            /* Position below navbar */
+            right: 0;
+            /* Align to the right */
+            background-color: #1e3c72;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            width: 200px;
+            text-align: center;
+        }
+
+        #nav-menu.show {
+            display: block;
+        }
+
+        #nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #nav-menu li {
+            margin: 0;
+        }
+
+        #nav-menu li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #nav-menu li a:hover {
+            background-color: #152b51;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        #about p {
+            line-height: 1.6;
+        }
+
+        #skills {
+            padding: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .skill-item {
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #2a5298;
+            color: white;
+        }
+
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #experience h3 {
+            margin-top: 1.5rem;
+        }
+
+        #experience ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+
+        #projects .project {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        #contact label {
+            font-weight: bold;
+        }
+
+        #contact input,
+        #contact textarea {
+            padding: 0.5rem;
+        }
+
+        #contact button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #contact button:hover {
+            background-color: #0056b3;
+        }
+
+        #certifications ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="home">
+        <div id="typed-container">
+            <h1 id="typedtext"></h1>
+        </div>
+        <div class="header-icons">
+            <a href="https://www.linkedin.com/in/akshithasai" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/akshiithasai" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div id="nav-menu">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Motivated and detail-oriented professional with over two years of experience as a Software Engineer at BizDoc Software Solutions, where I contributed to software development and data-driven solutions. Currently pursuing a master’s degree in business Analytics, deepening expertise in data analysis, visualization, and strategic decision-making. Adept at bridging the gap between technical solutions and business objectives, with hands-on experience in programming, ETL processes, and cloud technologies. Passionate about transforming data into actionable insights to drive business performance and efficiency.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            </div>
+    </section>
+
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <h3>Software Engineer - BizDoc Software Solutions (January 2021 – August 2023)</h3>
+        <ul>
+            <li>
+                Developed and maintained scalable web applications and internal tools, improving operational efficiency and user experience.
+            </li>
+            <li>
+                Collaborated with cross-functional teams to gather requirements and implement data-driven features.
+            </li>
+            <li>
+                Wrote and optimized SQL queries and Python scripts to automate business processes and support data integration.
+            </li>
+            <li>
+                Participated in ETL pipeline development for client projects, ensuring high data quality and accuracy.
+            </li>
+            <li>
+                Utilized Git for version control and collaborated through agile project management tools.
+            </li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>COVID-19 Severity Analysis Dashboard</h3>
+            <p>
+                Built an interactive dashboard to track global COVID-19 Active Cases, Deaths, Recoveries, and Mortality Rates. Designed a funnel chart to map patient recovery paths and a clustered column chart to compare case severity across countries. Used SQL for data extraction, cleaning, and ensuring accuracy for Power BI insights. Created visualizations including pie charts, line graphs, heat maps, and decomposition trees for in-depth trend analysis.
+            </p>
+        </div>
+        <div class="project">
+            <h3>CO2 EMISSIONS PREDICTION</h3>
+            <p>
+                Developed a machine learning project to predict CO2 emissions by vehicles, Utilized data visualization techniques and SQL for data management and analysis. Implemented various machine learning algorithms, including linear regression, k-means clustering, Bayesian linear regression and logistic regression. Conducted correlation and feature selection to identify significant factors of CO2 and Achieved an R-squared value of 0.7218.
+            </p>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li>SQL ANALYTICS AND BI ON DATABRICKS</li>
+            <li>SQL (Intermediate) – HackerRank</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>I'd love to hear from you! Please reach out for opportunities or collaborations.</p>
+        <form action="mailto:modepalliakshitha@gmail.com" method="POST" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+        <p>
+            You can reach me via email at
+            <a href="mailto:modepalliakshitha@gmail.com">modepalliakshitha@gmail.com</a>
+            or at +1 309-832-2603
+        </p>
+    </section>
+
+    <script>
+        const textElement = document.getElementById('typedtext');
+        const phrases = [
+            "👋 Hi, I'm Akshitha Sai Modepalli",
+            "📊 Business Analytics Grad Student",
+            "👩‍💻 Former Software Engineer",
+            "💡 Data Enthusiast"
+        ];
+        let currentPhraseIndex = 0;
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('nav-menu');
+        const skillsGrid = document.querySelector('.skills-grid');
+
+        const skills = [
+            { name: "Python", icon: "fab fa-python", color: "#3776AB" },
+            { name: "SQL", icon: "fas fa-database", color: "#00758F" },
+            { name: "Power BI", icon: "fas fa-chart-bar", color: "#F2C811" },
+            { name: "Tableau", icon: "fas fa-table", color: "#E16A3C" },
+            { name: "AWS", icon: "fab fa-aws", color: "#FF9900" },
+            { name: "JavaScript", icon: "fab fa-js", color: "#F7DF1E" },
+            { name: "Excel", icon: "fas fa-file-excel", color: "#207245" },
+            { name: "MySQL", icon: "fas fa-server", color: "#4479A1" },
+            { name: "SQL Server", icon: "fas fa-server", color: "#C21E56" },
+            { name: "Git", icon: "fab fa-github", color: "#181717" },
+            { name: "Pandas", icon: "fas fa-calculator", color: "#150458" },
+            { name: "NumPy", icon: "fas fa-calculator", color: "#013243" },
+            { name: "PySpark", icon: "fas fa-code", color: "#E2BAFF" },
+            { name: "VS Code", icon: "fab fa-microsoft", color: "#007ACC" },
+            { name: "Agile", icon: "fas fa-tasks", color: "#800080" },
+            //   { name: "ETL", icon: "fas fa-arrow-right", color: "#008080" }
+        ];
+
+        function updateText() {
+            textElement.classList.add('fade');
+            setTimeout(() => {
+                textElement.textContent = phrases[currentPhraseIndex];
+                textElement.classList.remove('fade');
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+            }, 200);
+        }
+
+        function toggleNav() {
+            navMenu.classList.toggle('show');
+        }
+
+        function displaySkills() {
+            let skillsHTML = '';
+            skills.forEach(skill => {
+                skillsHTML += `
+                    <div class="skill-item" style="background-color: ${skill.color};">
+                        <i class="${skill.icon}"></i>
+                        <p>${skill.name}</p>
+                    </div>
+                `;
+            });
+            skillsGrid.innerHTML = skillsHTML;
+        }
+
+        setInterval(updateText, 2000);
+        updateText();
+        navToggle.addEventListener('click', toggleNav);
+
+        displaySkills();
+    </script>
+</body>
+
+</html>
